@@ -9,9 +9,25 @@
    * react-native-cli is installed (`npm install -g react-native-cli`)
 
 ### Step 1: Npm install
+* replace the name of the emulator where it says the `"name":` inside `package.json`.
+```json
+  "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_9_API_28"
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "name": "Nexus_9_API_28"
+      }
+ ```
 
 * Make sure you're in folder `/react-native-detox`.
 * Run `npm install`.
+
 
 ## To test Release build of your app
 ### Step 2: Build 
