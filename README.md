@@ -1,6 +1,6 @@
-> detox
+> It is a fork of the [Detox Demo Project](https://github.com/wix/Detox/tree/master/examples/demo-react-native)
 
-# React Native Demo Project
+# React Native Detox
 
 ## Requirements
 * Windows 8 or 10.
