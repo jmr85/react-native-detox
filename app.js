@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
+import { createStackNavigator } from 'react-navigation-stack'
 import ProductScreen from './components/ProductScreen';
 import ProductDetailsScreen from './components/ProductDetailsScreen';
 import ProductAddScreen from './components/ProductAddScreen';
@@ -30,11 +30,12 @@ const RootStack = createStackNavigator(
 
 const RootContainer = createAppContainer(RootStack);
 
-class App extends Component {
+class example extends Component {
   render() {
     return <RootContainer style={styles.container} />;
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
