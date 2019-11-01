@@ -4,7 +4,7 @@ import { View, ScrollView, KeyboardAvoidingView, Alert } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { openDatabase } from 'react-native-sqlite-storage';
-var db = openDatabase({ name: 'UserDatabase.db' });
+var db = openDatabase({ name: 'user_db.db' });
 
 export default class RegisterUser extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class RegisterUser extends Component {
         if (user_address) {
           db.transaction(function(tx) {
             tx.executeSql(
-              'INSERT INTO table_user (user_name, user_contact, user_address) VALUES (?,?,?)',
+              'INSERT INTO tbl_user (user_name, user_contact, user_address) VALUES (?,?,?)',
               [user_name, user_contact, user_address],
               (tx, results) => {
                 console.log('Results', results.rowsAffected);

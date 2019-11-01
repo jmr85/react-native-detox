@@ -4,7 +4,7 @@ import { Button, Text, View, Alert } from 'react-native';
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { openDatabase } from 'react-native-sqlite-storage';
-var db = openDatabase({ name: 'UserDatabase.db' });
+var db = openDatabase({ name: 'user_db.db' });
 
 export default class UpdateUser extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ export default class UpdateUser extends Component {
     const { input_user_id } = this.state;
     db.transaction(tx => {
       tx.executeSql(
-        'DELETE FROM  table_user where user_id=?',
+        'DELETE FROM  tbl_user where user_id=?',
         [input_user_id],
         (tx, results) => {
           console.log('Results', results.rowsAffected);

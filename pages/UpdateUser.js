@@ -4,7 +4,7 @@ import { View, YellowBox, ScrollView, KeyboardAvoidingView, Alert, } from 'react
 import Mytextinput from './components/Mytextinput';
 import Mybutton from './components/Mybutton';
 import { openDatabase } from 'react-native-sqlite-storage';
-var db = openDatabase({ name: 'UserDatabase.db' });
+var db = openDatabase({ name: 'user_db.db' });
  
 export default class UpdateUser extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class UpdateUser extends Component {
     console.log(this.state.input_user_id);
     db.transaction(tx => {
       tx.executeSql(
-        'SELECT * FROM table_user where user_id = ?',
+        'SELECT * FROM tbl_user where user_id = ?',
         [input_user_id],
         (tx, results) => {
           var len = results.rows.length;
@@ -60,7 +60,7 @@ export default class UpdateUser extends Component {
         if (user_address){
           db.transaction((tx)=> {
             tx.executeSql(
-              'UPDATE table_user set user_name=?, user_contact=? , user_address=? where user_id=?',
+              'UPDATE tbl_user set user_name=?, user_contact=? , user_address=? where user_id=?',
               [user_name, user_contact, user_address, input_user_id],
               (tx, results) => {
                 console.log('Results',results.rowsAffected);

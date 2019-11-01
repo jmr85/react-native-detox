@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { openDatabase } from 'react-native-sqlite-storage';
-var db = openDatabase({ name: 'UserDatabase.db' }); 
+var db = openDatabase({ name: 'user_db.db' }); 
 
 export default class ViewAllUser extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class ViewAllUser extends Component {
       FlatListItems: [],
     };
     db.transaction(tx => {
-      tx.executeSql('SELECT * FROM table_user', [], (tx, results) => {
+      tx.executeSql('SELECT * FROM tbl_user', [], (tx, results) => {
         var temp = [];
         for (let i = 0; i < results.rows.length; ++i) {
           temp.push(results.rows.item(i));
