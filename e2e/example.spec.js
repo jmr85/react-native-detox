@@ -2,11 +2,10 @@ const {device, expect, element, by} = require('detox');
 
 describe('Example', () => {
   
-  beforeEach(async () => {
-    await device.reloadReactNative();
-  });
+    beforeEach(async () => {
+      await device.reloadReactNative();
+    });
 
-  describe('App', () => {
     it('should have welcome screen', async () => {
       await expect(element(by.id('welcome'))).toBeVisible();
     });
@@ -40,7 +39,4 @@ describe('Example', () => {
     it('hide modal', async () => {
       await element(by.id('button_hide_id')).tap();
     });
-  
-  });
-  
 });
